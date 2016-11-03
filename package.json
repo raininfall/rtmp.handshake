@@ -2,7 +2,7 @@
   "name": "Handshake",
   "version": "0.0.1",
   "description": "RTMP handshake processor",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "test": "mocha"
   },
@@ -10,6 +10,10 @@
     "rtmp",
     "handshake"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RainInFall/rtmp.handshake.git"
+  },
   "author": "RainInFall",
   "license": "MIT",
   "devDependencies": {
