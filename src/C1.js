@@ -1,5 +1,5 @@
 import crypto from 'crypto';
-import hmacFP from 'HmacFP';
+import hmacFP from './HmacFP';
 import is from 'is';
 import moment from 'moment';
 import random_engine from 'random-js';

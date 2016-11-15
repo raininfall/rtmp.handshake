@@ -1,6 +1,6 @@
 import S1 from './S1';
 import crypto from 'crypto';
-import hmacFMS from 'HmacFMS';
+import hmacFMS from './HmacFMS';
 
 export default class C2 {
   static create(buf_c1) {

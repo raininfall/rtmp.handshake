@@ -1,7 +1,7 @@
 import C1 from './C1';
 import crypto from 'crypto';
 import hmacFMS from './HmacFMS';
-import is from './is';
+import is from 'is';
 import moment from 'moment';
 import random_engine from 'random-js';
 

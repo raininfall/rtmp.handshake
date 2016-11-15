@@ -1,9 +1,9 @@
 export default class C0 {
-  static C0 = Buffer.from([0x03]);
+  static DATA = Buffer.from([0x03]);
 
   static create() {
     const c0 = new C0();
-    c0._buf = C0;
+    c0._buf = C0.DATA;
 
     return c0;
   }
@@ -20,7 +20,7 @@ export default class C0 {
   }
 
   validate() {
-    if (Buffer.compare(C0, this._buf) !== 0) {
+    if (Buffer.compare(C0.DATA, this._buf) !== 0) {
       return false;
     }
 
