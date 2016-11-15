@@ -1,5 +1,5 @@
 const expect = require('expect');
-const handshake = require('../');
+import handshake from '../';
 const mlog = require('mocha-logger');
 const net = require('net');
 const BufferList = require('bl');

@@ -13,3 +13,12 @@ export {
   S1,
   S2
 };
+
+export default {
+  C0,
+  C1,
+  C2,
+  S0,
+  S1,
+  S2
+};
