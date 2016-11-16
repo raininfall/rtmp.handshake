@@ -37,5 +37,9 @@
     "is": "^3.2.0",
     "moment": "^2.16.0",
     "random-js": "^1.0.8"
+  },
+  "nyc": {
+    "sourceMap": false,
+    "instrument": false
   }
 }
