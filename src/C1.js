@@ -5,8 +5,13 @@ import moment from 'moment';
 import random_engine from 'random-js';
 
 const random =  random_engine();
-
 const C1_VERSION = 0x80000702;
+const RFC2409_PRIME_1024 = Buffer.from("FFFFFFFFFFFFFFFFC90FDAA22168C234C4C6628B80DC1CD1" +
+            "29024E088A67CC74020BBEA63B139B22514A08798E3404DD" +
+            "EF9519B3CD3A431B302B0A6DF25F14374FE1356D6D51C245" +
+            "E485B576625E7EC6F44C42E9A637ED6B0BFF5CB6F406B7ED" +
+            "EE386BFB5A899FA5AE9F24117C4B1FE649286651ECE65381" +
+            "FFFFFFFFFFFFFFFF");
 
 export default class C1 {
   static fromBuffer(buf) {
@@ -60,13 +65,15 @@ export default class C1 {
     ]);
   }
 
-  encode(dh) {
+  encode() {
     this._buf.writeUInt32BE(moment.unix(), 0);
     this._buf.writeUInt32BE(C1_VERSION, 4);
 
+    this._dh = crypto.createDiffieHellman(RFC2409_PRIME_1024);
+
     const key_offset = random.integer(0, 764 - 128 - 4);
     this._buf.writeUInt32BE(key_offset, 1532);
-    const key = dh.generateKeys();
+    const key = this._dh.generateKeys();
     key.copy(this._buf, 772 + key_offset);
 
     const digest_offset = random.integer(0, 764 - 4 - 32);
