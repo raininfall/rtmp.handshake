@@ -3,10 +3,10 @@ import crypto from 'crypto';
 import hmacFMS from './HmacFMS';
 
 export default class C2 {
-  static create(buf_c1) {
+  static create(buf_s1) {
     const c2 = new C2();
     c2._buf = crypto.randomBytes(1536);
-    c2._s1 = S1.fromBuffer(buf_c1);
+    c2._s1 = S1.fromBuffer(buf_s1);
 
     return c2;
   }

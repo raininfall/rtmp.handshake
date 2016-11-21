@@ -50,7 +50,7 @@ module.exports = {
         "eqeqeq": "error",
         "func-call-spacing": "error",
         "func-name-matching": "error",
-        "func-names": "error",
+        "func-names": ["error", "as-needed"],
         "func-style": "error",
         "generator-star-spacing": "error",
         "global-require": "error",
