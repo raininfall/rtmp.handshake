@@ -1,12 +1,11 @@
-import S1 from './S1';
 import crypto from 'crypto';
 import hmacFMS from './HmacFMS';
 
 export default class C2 {
-  static create(buf_s1) {
+  static create(s1) {
     const c2 = new C2();
     c2._buf = crypto.randomBytes(1536);
-    c2._s1 = S1.fromBuffer(buf_s1);
+    c2._s1 = s1;
 
     return c2;
   }
@@ -33,5 +32,13 @@ export default class C2 {
     digest.copy(this._buf, 1504);
 
     return this._buf;
+  }
+
+  validate(s1) {
+    const hmac = crypto.createHmac(hmacFMS(s1.getDigest()));
+    hmac.update(this.getRandom());
+    const digest = hmac.digest();
+
+    return Buffer.compare(digest, this.getDigest()) === 0;
   }
 }
