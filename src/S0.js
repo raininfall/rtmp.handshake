@@ -1,5 +1,5 @@
 export default class S0 {
-  static S0 = Buffer.from([0x03]);
+  static DATA = Buffer.from([0x03]);
 
   static create() {
     const s0 = new S0();
@@ -20,7 +20,7 @@ export default class S0 {
   }
 
   validate() {
-    if (Buffer.compare(S0, this._buf) !== 0) {
+    if (Buffer.compare(S0.DATA, this._buf) !== 0) {
       return false;
     }
 
