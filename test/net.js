@@ -33,9 +33,13 @@ describe('test with nginx-rtmp', () => {
         const c2 = handshake.C2.create(s1);
         sock.write(c2.encode());
         mlog.log('Send C2');
+
+        setTimeout(() => {
+          done();
+        }, 2000);
       }
     });
-
+    sock.on('close', done);
     sock.on('error', done);
   });
 });
