@@ -26,7 +26,7 @@ export default class C2 {
   }
 
   encode() {
-    const hmac = crypto.createHmac(hmacFMS(this._s1.getDigest()));
+    const hmac = crypto.createHmac('sha256', hmacFMS(this._s1.getDigest()));
     hmac.update(this.getRandom());
     const digest = hmac.digest();
     digest.copy(this._buf, 1504);
