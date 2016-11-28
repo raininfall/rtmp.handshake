@@ -21,6 +21,8 @@ export default class S1 {
   static fromBuffer(buf) {
     const s1 = new S1();
     s1._buf = buf;
+
+    return s1;
   }
 
   getVersion() {
